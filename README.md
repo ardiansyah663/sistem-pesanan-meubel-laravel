@@ -530,9 +530,9 @@ Proyek ini dilisensikan di bawah MIT License. Lihat file [LICENSE](LICENSE) untu
 [![GitHub Issues](https://img.shields.io/github/issues/username/repo)](https://github.com/username/repo/issues)
 [![GitHub Discussions](https://img.shields.io/github/discussions/username/repo)](https://github.com/username/repo/discussions)
 
-**📧 Email**: support@example.com  
-**💬 WhatsApp**: +62 812-3456-7890  
-**🌐 Website**: [https://example.com](https://example.com)
+**📧 Email**: diansiahaan663@gmail.com 
+**💬 WhatsApp**: +62 878-6160-8686  
+**🌐 Website**: -
 
 </div>
 
