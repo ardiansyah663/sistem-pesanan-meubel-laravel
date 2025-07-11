@@ -312,30 +312,59 @@ Content-Type: application/json
 
 ## 📊 Skema Database
 
+### Tabel Users
+```sql
+CREATE TABLE users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    email_verified_at TIMESTAMP NULL DEFAULT NULL,
+    password VARCHAR(255) NOT NULL,
+    remember_token VARCHAR(100) DEFAULT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL,
+    UNIQUE KEY email (email)
+);
+
+```
+
 ### Tabel Orders
 ```sql
 CREATE TABLE orders (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    customer_id BIGINT NOT NULL,
-    order_number VARCHAR(255) UNIQUE,
-    total_amount DECIMAL(15,2),
-    status ENUM('pending', 'confirmed', 'in_progress', 'delivered', 'cancelled'),
-    order_date TIMESTAMP,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_address TEXT NOT NULL,
+    customer_phone VARCHAR(255) NOT NULL,
+    products JSON NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    status ENUM('pending', 'confirmed', 'canceled') NOT NULL DEFAULT 'pending',
+    payment_proof VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL
 );
 ```
 
-### Tabel Customers
+### Tabel Products
 ```sql
-CREATE TABLE customers (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE products (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE,
-    phone VARCHAR(20),
-    address TEXT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    description TEXT DEFAULT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    category_id BIGINT UNSIGNED NOT NULL,
+    image VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL
+);
+```
+
+### Tabel Categories
+```sql
+CREATE TABLE categories (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL
 );
 ```
 
